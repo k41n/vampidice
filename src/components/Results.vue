@@ -21,60 +21,62 @@ export default {
   props: ["results"],
   computed: {
     resultShort: function() {
-      if (this.results.epicFailure) {
-        return `EPIC FAIL ${-this.results.successes}`;
+      const { successes, epicFailure } = this.results;
+      if (epicFailure) {
+        return `EPIC FAIL ${-successes}`;
       }
-      if (this.results.successes === 0) {
+      if (successes === 0) {
         return "Неудача (0)";
       }
-      if (this.results.successes === 1) {
+      if (successes === 1) {
         return "Незначительный успех (1)";
       }
-      if (this.results.successes === 2) {
+      if (successes === 2) {
         return "Средний успех (2)";
       }
-      if (this.results.successes === 3) {
+      if (successes === 3) {
         return "Отличный успех (3)";
       }
-      if (this.results.successes === 4) {
+      if (successes === 4) {
         return "Выдающийся успех (4)";
       }
-      if (this.results.successes >= 4) {
-        return `Феноменально (${this.results.successes})`;
+      if (successes >= 4) {
+        return `Феноменально (${successes})`;
       }
     },
     shortDesc: function() {
-      if (this.results.successes === 1) {
+      const { successes } = this.results;
+      if (successes === 1) {
         return "поддерживать сломанный холодильник в рабочем состоянии, пока не приедет мастер";
       }
-      if (this.results.successes === 2) {
+      if (successes === 2) {
         return "смастерить что-то отвратительное, но полезное";
       }
-      if (this.results.successes === 3) {
+      if (successes === 3) {
         return "отремонтировать что-то, чтобы оно стало как новенькое";
       }
-      if (this.results.successes === 4) {
+      if (successes === 4) {
         return "увеличить эффективность вашей машины в процессе ее ремонта";
       }
-      if (this.results.successes >= 4) {
+      if (successes >= 4) {
         return "создать шедевр";
       }
     },
     resultShortClass: function() {
+      const { epicFailure, successes } = this.results;
       return {
-        "epic-fail": this.results.epicFailure,
-        failure: this.results.successes === 0,
-        success: this.results.successes > 0 && this.results.successes < 3,
+        "epic-fail": epicFailure,
+        failure: successes === 0,
+        success: successes > 0 && successes < 3,
         "good-success":
-          this.results.successes >= 3 && this.results.successes < 5,
-        "epic-success": this.results.successes >= 5
+          successes >= 3 && successes < 5,
+        "epic-success": successes >= 5
       };
     }
   }
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .results {
   align-items: stretch;

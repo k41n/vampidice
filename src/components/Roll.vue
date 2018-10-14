@@ -8,10 +8,6 @@ export default {
   props: ["difficulty", "rolls"],
   methods: {
     handleRoll: function() {
-      console.log("this", this);
-      console.log(
-        `Roll ${this.rolls} times with ${this.difficulty} difficulty`
-      );
       const results = {
         successRolls: 0,
         failureRolls: 0,
