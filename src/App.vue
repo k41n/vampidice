@@ -19,7 +19,7 @@ export default {
   name: "app",
   data: () => ({
     selectedDice: 0,
-    selectedLevel: 0,
+    selectedLevel: 2,
     results: undefined
   }),
   components: {
