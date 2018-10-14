@@ -68,8 +68,7 @@ export default {
         "epic-fail": epicFailure,
         failure: successes === 0,
         success: successes > 0 && successes < 3,
-        "good-success":
-          successes >= 3 && successes < 5,
+        "good-success": successes >= 3 && successes < 5,
         "epic-success": successes >= 5
       };
     }

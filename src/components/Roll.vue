@@ -3,39 +3,14 @@
 </template>
 
 <script>
+import roll from "@/services/roll";
+
 export default {
   name: "Roll",
   props: ["difficulty", "rolls"],
   methods: {
     handleRoll: function() {
-      const results = {
-        successRolls: 0,
-        failureRolls: 0,
-        successes: 0,
-        epicFailure: false,
-        rollLog: [],
-        difficulty: this.difficulty,
-        rolls: this.rolls
-      };
-      for (let i = 0; i < this.rolls; i++) {
-        const rolled = Math.floor(Math.random() * 10 + 1);
-        if (rolled >= this.difficulty) {
-          results.successRolls += 1;
-          results.successes += 1;
-          results.rollLog.push(`Rolled ${rolled} -> SUCCESS!`);
-        } else {
-          if (rolled === 1) {
-            results.successes -= 1;
-            results.rollLog.push("Rolled CRITICAL FAILURE!");
-          } else {
-            results.rollLog.push(`Rolled ${rolled} -> Failure`);
-          }
-        }
-      }
-      if (results.successes < 0) {
-        results.epicFailure = true;
-      }
-      this.$emit("roll-results", results);
+      this.$emit("roll-results", roll(this.difficulty, this.rolls));
     }
   }
 };
