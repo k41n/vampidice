@@ -1,4 +1,4 @@
 module.exports = {
   outputDir: "./docs",
-  baseUrl: "docs"
+  baseUrl: "vampidice/docs"
 };
