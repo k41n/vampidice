@@ -1,17 +1,49 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <RollBank v-if="!results" v-on:dice-selected="handleDiceSelected" v-bind:selectedDice="selectedDice" />
+    <Difficulty v-if="!results" v-on:difficulty-selected="handleDifficultySelected" v-bind:selectedLevel="selectedLevel" />
+    <Results v-if="results" v-bind:results="results" />
+    <Reset v-if="results" v-on:reset="handleReset" />
+    <Roll v-if="!results" v-bind:difficulty="selectedLevel" v-bind:rolls="selectedDice" v-on:roll-results="handleRollResults" />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Roll from "./components/Roll.vue";
+import RollBank from "./components/RollBank.vue";
+import Difficulty from "./components/Difficulty.vue";
+import Results from "./components/Results.vue";
+import Reset from "./components/Reset.vue";
 
 export default {
   name: "app",
+  data: () => (
+    {
+      selectedDice: 0,
+      selectedLevel: 0,
+      results: undefined
+    }
+  ),
   components: {
-    HelloWorld
+    RollBank,
+    Difficulty,
+    Roll,
+    Results,
+    Reset
+  },
+  methods: {
+    handleDiceSelected: function(event) {
+      this.selectedDice = event;
+    },
+    handleDifficultySelected: function(event) {
+      this.selectedLevel = event;
+    },
+    handleRollResults: function(event) {
+      this.results = event;
+    },
+    handleReset: function() {
+      this.results = undefined;
+    }
   }
 };
 </script>
@@ -23,6 +55,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
 }
 </style>
