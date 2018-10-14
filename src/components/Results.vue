@@ -88,7 +88,7 @@ export default {
   border-radius: 40px;
   display: flex;
   flex-direction: column;
-  font-size: 48px;
+  font-size: 36px;
   min-height: 200px;
   min-width: 200px;
   padding: 20px;
