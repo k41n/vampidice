@@ -1364,7 +1364,7 @@ babel-helpers@^6.24.1:
     babel-runtime "^6.22.0"
     babel-template "^6.24.1"
 
-babel-jest@^23.0.1, babel-jest@^23.4.0, babel-jest@^23.6.0:
+babel-jest@^23.4.0, babel-jest@^23.6.0:
   version "23.6.0"
   resolved "https://registry.yarnpkg.com/babel-jest/-/babel-jest-23.6.0.tgz#a644232366557a2240a0c083da6b25786185a2f1"
   dependencies:
@@ -8061,10 +8061,6 @@ vue-eslint-parser@^2.0.3:
 vue-hot-reload-api@^2.3.0:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.1.tgz#b2d3d95402a811602380783ea4f566eb875569a2"
-
-vue-i18n@^8.2.0:
-  version "8.2.0"
-  resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-8.2.0.tgz#d0bb0880e4c17d2746eb13f3cf8f4387ec2d7e3e"
 
 vue-jest@^2.6.0:
   version "2.6.0"
