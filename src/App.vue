@@ -17,13 +17,11 @@ import Reset from "./components/Reset.vue";
 
 export default {
   name: "app",
-  data: () => (
-    {
-      selectedDice: 0,
-      selectedLevel: 0,
-      results: undefined
-    }
-  ),
+  data: () => ({
+    selectedDice: 0,
+    selectedLevel: 0,
+    results: undefined
+  }),
   components: {
     RollBank,
     Difficulty,

@@ -23,11 +23,11 @@ export default {
   },
   props: ["selectedLevel"],
   data: () => ({
-    numbers: [2,3,4,5,6,7,8,9,10]
+    numbers: [2, 3, 4, 5, 6, 7, 8, 9, 10]
   }),
   methods: {
     handleDifficultySelected: function(event) {
-      this.$emit('difficulty-selected', event);
+      this.$emit("difficulty-selected", event);
     }
   }
 };
@@ -35,9 +35,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .level-list{
-    display: flex;
-    flex-wrap: wrap;
-  }
+.level-list {
+  display: flex;
+  flex-wrap: wrap;
+}
 </style>
-

@@ -8,7 +8,7 @@
     </div>
     <div class="log">
       <h2>{{ `${results.rolls} бросков со сложностью ${results.difficulty}` }}</h2>
-      <div v-for="line in results.rollLog">
+      <div v-for="line in results.rollLog" v-bind:key="line">
         {{ line }}
       </div>
     </div>
@@ -18,11 +18,11 @@
 <script>
 export default {
   name: "Results",
-  props: ['results'],
+  props: ["results"],
   computed: {
     resultShort: function() {
       if (this.results.epicFailure) {
-        return `EPIC FAIL ${- this.results.successes}`;
+        return `EPIC FAIL ${-this.results.successes}`;
       }
       if (this.results.successes === 0) {
         return "Неудача (0)";
@@ -63,11 +63,12 @@ export default {
     resultShortClass: function() {
       return {
         "epic-fail": this.results.epicFailure,
-        "failure": this.results.successes === 0,
-        "success": this.results.successes > 0 && this.results.successes < 3,
-        "good-success": this.results.successes >= 3 && this.results.successes < 5,
+        failure: this.results.successes === 0,
+        success: this.results.successes > 0 && this.results.successes < 3,
+        "good-success":
+          this.results.successes >= 3 && this.results.successes < 5,
         "epic-success": this.results.successes >= 5
-      }
+      };
     }
   }
 };
@@ -75,56 +76,56 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .results {
-    align-items: stretch;
-    display: flex;
-    flex-wrap: wrap;
-  }
+.results {
+  align-items: stretch;
+  display: flex;
+  flex-wrap: wrap;
+}
 
-  .results-short {
-    align-items: center;
-    border-radius: 40px;
-    display: flex;
-    flex-direction: column;
-    font-size: 48px;
-    min-height: 200px;
-    min-width: 200px;
-    padding: 20px;
-  }
+.results-short {
+  align-items: center;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  font-size: 48px;
+  min-height: 200px;
+  min-width: 200px;
+  padding: 20px;
+}
 
-  .epic-fail {
-    border: solid 1px red;
-    color: red;
-  }
+.epic-fail {
+  border: solid 1px red;
+  color: red;
+}
 
-  .success {
-    border: solid 1px #699;
-    color: #699;
-  }
+.success {
+  border: solid 1px #699;
+  color: #699;
+}
 
-  .good-success {
-    border: solid 1px #690;
-    color: #690;
-  }
+.good-success {
+  border: solid 1px #690;
+  color: #690;
+}
 
-  .epic-success {
-    border: solid 1px #690;
-    color: #690;
-  }
+.epic-success {
+  border: solid 1px #690;
+  color: #690;
+}
 
-  .failure {
-    border: solid 1px #960;
-    color: #960;
-  }
+.failure {
+  border: solid 1px #960;
+  color: #960;
+}
 
-  .log {
-    padding: 10px;
-    text-align: left;
-  }
+.log {
+  padding: 10px;
+  text-align: left;
+}
 
-  .short-desc {
-    display: inline-block;
-    font-size: 22px;
-    text-align: left;
-  }
+.short-desc {
+  display: inline-block;
+  font-size: 22px;
+  text-align: left;
+}
 </style>

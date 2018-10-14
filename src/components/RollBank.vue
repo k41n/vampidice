@@ -7,6 +7,7 @@
         v-bind:number="number"
         v-on:dice-selected="handleDiceSelected"
         v-bind:selected="selectedDice === number"
+        v-bind:key="number"
       />
     </div>
   </div>
@@ -20,13 +21,13 @@ export default {
   components: {
     Dice
   },
-  props: ['selectedDice'],
+  props: ["selectedDice"],
   data: () => ({
-    numbers: Array.from(Array(12).keys()),
+    numbers: Array.from(Array(12).keys())
   }),
   methods: {
     handleDiceSelected: function(event) {
-      this.$emit('dice-selected', event);
+      this.$emit("dice-selected", event);
     }
   }
 };
@@ -34,8 +35,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .dice-list {
-    display: flex;
-    flex-wrap: wrap;
-  }
+.dice-list {
+  display: flex;
+  flex-wrap: wrap;
+}
 </style>
