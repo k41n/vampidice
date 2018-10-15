@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <RollBank v-if="!results" v-on:dice-selected="handleDiceSelected" v-bind:selectedDice="selectedDice" />
-    <Difficulty v-if="!results" v-on:difficulty-selected="handleDifficultySelected" v-bind:selectedLevel="selectedLevel" />
+    <RollBank v-if="!results" v-model="selectedDice" />
+    <Difficulty v-if="!results" v-model="selectedLevel" />
     <Results v-if="results" v-bind:results="results" />
     <Reset v-if="results" v-on:reset="handleReset" />
     <Roll v-if="!results" v-bind:difficulty="selectedLevel" v-bind:rolls="selectedDice" v-on:roll-results="handleRollResults" />

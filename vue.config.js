@@ -1,4 +1,5 @@
+console.log("NODE_ENV", process.env.NODE_ENV);
 module.exports = {
   outputDir: "./docs",
-  baseUrl: "vampidice"
+  baseUrl: process.env.NODE_ENV === "production" ? "vampidice" : "/"
 };

@@ -6,7 +6,7 @@
         v-for="number in numbers"
         v-bind:number="number"
         v-on:dice-selected="handleDiceSelected"
-        v-bind:selected="selectedDice === number"
+        v-bind:selected="value === number"
         v-bind:key="number"
       />
     </div>
@@ -21,13 +21,13 @@ export default {
   components: {
     Dice
   },
-  props: ["selectedDice"],
+  props: ["value"],
   data: () => ({
     numbers: Array.from(Array(12).keys())
   }),
   methods: {
     handleDiceSelected: function(event) {
-      this.$emit("dice-selected", event);
+      this.$emit("input", event);
     }
   }
 };

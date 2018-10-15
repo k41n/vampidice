@@ -6,7 +6,7 @@
         v-for="number in numbers"
         v-bind:number="number"
         v-on:difficulty-selected="handleDifficultySelected"
-        v-bind:selected="selectedLevel === number"
+        v-bind:selected="value === number"
         v-bind:key="number"
       />
     </div>
@@ -21,13 +21,13 @@ export default {
   components: {
     DifficultyLevel
   },
-  props: ["selectedLevel"],
+  props: ["value"],
   data: () => ({
     numbers: [2, 3, 4, 5, 6, 7, 8, 9, 10]
   }),
   methods: {
     handleDifficultySelected: function(event) {
-      this.$emit("difficulty-selected", event);
+      this.$emit("input", event);
     }
   }
 };
